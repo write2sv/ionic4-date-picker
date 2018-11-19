@@ -39,6 +39,10 @@ import { DatePickerModule } from 'ionic4-date-picker';
  `(onSelect)` - An event that is created when a date is selected. Outputs Date object.
  
  `[date]` - A date object that sets the selected date in the calendar. (not required. Default is today)
+
+  `[fromDate]` - A date object that sets the min date in the calendar. (not required)
+
+ `[toDate]` - A date object that sets max date in the calendar. (not required)
  
  `[monthLabels]` - An array of month label strings. (not required. Default is ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];)
  
