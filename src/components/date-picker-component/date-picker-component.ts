@@ -3,8 +3,8 @@ import { Calendar, Day } from 'dayspan';
 import * as moment from 'moment';
 
 const HTML_CODE = `
-<div  [ngStyle]="backgroudStyle">
-    <ion-item *ngIf="showView === 'calendar'" [ngStyle]="backgroudStyle">
+<div  [ngStyle]="backgroundStyle">
+    <ion-item *ngIf="showView === 'calendar'" [ngStyle]="backgroundStyle">
         <ion-icon name="calendar" slot="start">
         </ion-icon>
         <ion-button fill="clear" (click)="showMonthView()" class="calendar-button">
