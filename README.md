@@ -48,6 +48,8 @@ import { DatePickerModule } from 'ionic4-date-picker';
  
  `[dayLabels]` - An array of day label strings. (not required. Default is ['S', 'M', 'T', 'W', 'T', 'F', 'S'];)
 
+ `[validDates]` - An array of Date objects. When this is provided all the other dates will be disabled. The component still respects start date and end date if provided (not required. Default is [];)
+
 ## Styling Options ###
   ```
     <ionic-calendar-date-picker [notInCalendarStyle]="{'color': 'red', 'font-weight': 'bold'}"></ionic-calendar-date-picker>
@@ -69,6 +71,8 @@ import { DatePickerModule } from 'ionic4-date-picker';
   `[itemSelectedStyle]` - Styling on selected Item by the user. Default: { 'background': '#488aff', 'color': '#f4f4f4 !important' };
   
   `[todaysItemStyle]` - Styling on showing todays Day, Month, Year. Default: { 'color': '#32db64' };
+
+  `[invalidDateStyle]` - Styling on invalid Dates when you provide validDates input. Default: { 'text-decoration': 'line-through', 'color': 'red' };
 
 ### 4) Pictures ###
 

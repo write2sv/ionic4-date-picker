@@ -32,7 +32,9 @@ const HTML_CODE = `
         </ion-row>
         <ion-row *ngFor="let week of weeks">
             <ion-col *ngFor="let day of week" (click)="selectDay(day)" [ngStyle]="getDayStyle(day)" text-center>
-                <span [ngStyle]="!day.inCalendar && notInCalendarStyle">{{isValidDay(day) ? day.dayOfMonth : '&nbsp;&nbsp;'}}</span>
+                <span [ngStyle]="!day.inCalendar && notInCalendarStyle">
+                   <span [ngStyle]="isValidDay(day) && !isOneOfTheValidDates(day) && invalidDateStyle">{{isValidDay(day) ? day.dayOfMonth : '&nbsp;&nbsp;'}}</span>
+                </span>
             </ion-col>
         </ion-row>
     </ion-grid>
@@ -128,6 +130,7 @@ export class DatePickerComponent implements OnInit {
   @Input() date: Date;
   @Input() fromDate: Date;
   @Input() toDate: Date;
+  @Input() validDates: Date[] = [];
 
   @Input() backgroundStyle = { 'background-color': '#ffffff' };
   @Input() notInCalendarStyle = { 'color': '#8b8b8b' };
@@ -135,6 +138,7 @@ export class DatePickerComponent implements OnInit {
   @Input() monthLabelsStyle = {  'font-size': '15px' };
   @Input() yearLabelsStyle = {  'font-size': '15px' };
   @Input() itemSelectedStyle = { 'background': '#488aff', 'color': '#f4f4f4 !important' };
+  @Input() invalidDateStyle = { 'text-decoration': 'line-through', 'color': 'red' };
   @Input() todaysItemStyle = { 'color': '#32db64' };
 
   @Output() onSelect: EventEmitter<Date> = new EventEmitter();
@@ -258,7 +262,7 @@ export class DatePickerComponent implements OnInit {
   }
 
   selectDay(day: Day) {
-    if (!this.isValidDay(day)) {
+    if (!this.isValidDay(day) || !this.isOneOfTheValidDates(day)) {
       return;
     }
 
@@ -398,6 +402,19 @@ export class DatePickerComponent implements OnInit {
     if (this.fromDate) {
       return day.toDate() >= this.fromDate;
     }
+  }
+
+  isOneOfTheValidDates(day: Day) {
+    if (this.validDates && this.validDates.length) {
+      const index = this.validDates.findIndex(validDate => 
+        validDate.getFullYear() === day.toDate().getFullYear() &&
+            validDate.getMonth() === day.toDate().getMonth() &&
+            validDate.getDate() === day.toDate().getDate() 
+      ); 
+      return index !== -1;
+    }
+
+    return true;
   }
 
   isValidMonth(index: number) {
