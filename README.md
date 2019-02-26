@@ -80,4 +80,6 @@ import { DatePickerModule } from 'ionic4-date-picker';
 ![Day Selection]( day.png "Day Selection")
 ![Year Selection]( year.png "Year Selection")
 ![Month Selection]( month.png "Month Selection")
+![Demo]( phone.png "Demo on a Phone")
+
 
