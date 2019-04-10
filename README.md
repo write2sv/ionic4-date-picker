@@ -50,6 +50,17 @@ import { DatePickerModule } from 'ionic4-date-picker';
 
  `[validDates]` - An array of Date objects. When this is provided all the other dates will be disabled. The component still respects start date and end date if provided (not required. Default is [];)
 
+ ## Styling Option by Date ###
+ `[dateStyles]` - An Java dictionary representing style (value) for each date in YYYY-MM-DD (key in ISO).
+                  For eg:
+                    dateStyles = { 
+                                  '2019-04-10': {'background-color': 'red'},
+                                  '2019-04-09': {'background-color': 'green'},
+                                  '2019-04-08': {'background-color': 'blue'},
+                                };
+                    Hint: You can use toDate().toISOString().slice(0,10) on your Date object to quickly get the key.
+
+
 ## Styling Options ###
   ```
     <ionic-calendar-date-picker [notInCalendarStyle]="{'color': 'red', 'font-weight': 'bold'}"></ionic-calendar-date-picker>

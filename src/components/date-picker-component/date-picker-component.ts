@@ -131,6 +131,7 @@ export class DatePickerComponent implements OnInit {
   @Input() fromDate: Date;
   @Input() toDate: Date;
   @Input() validDates: Date[] = [];
+  @Input() dateStyles: any = {};
 
   @Input() backgroundStyle = { 'background-color': '#ffffff' };
   @Input() notInCalendarStyle = { 'color': '#8b8b8b' };
@@ -448,6 +449,11 @@ export class DatePickerComponent implements OnInit {
 
     if (this.daySelected && day.dayIdentifier === this.daySelected.dayIdentifier) {
       style = {...style, ...this.itemSelectedStyle};
+    }
+
+    const dayStyle = this.dateStyles && this.dateStyles[day.toDate().toISOString().slice(0,10)];
+    if (dayStyle) {
+      style = {...style, ...dayStyle};
     }
 
     return style;
