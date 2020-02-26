@@ -12,7 +12,8 @@
             "dom",
             "es2017"
         ],
-        "outDir": "dist"
+        "outDir": "dist",
+        "allowSyntheticDefaultImports": true
     },
     "exclude": [
         "node_modules",
@@ -20,6 +21,7 @@
         "scripts"
     ],
     "angularCompilerOptions": {
-        "skipTemplateCodegen": true
+        "skipTemplateCodegen": true,
+        "enableIvy": false
     }
 }
