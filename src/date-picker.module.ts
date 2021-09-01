@@ -1,7 +1,7 @@
-import { NgModule, ModuleWithProviders, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { IonicModule } from '@ionic/angular';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { NgModule, ModuleWithProviders } from '@angular/core';
+import {IonicModule} from "@ionic/angular";
+import {CommonModule} from "@angular/common";
+import {FormsModule} from "@angular/forms";
 
 import { DatePickerComponent } from './components/date-picker-component/date-picker-component';
 
@@ -19,7 +19,7 @@ import { DatePickerComponent } from './components/date-picker-component/date-pic
     ]
 })
 export class DatePickerModule {
-    static forRoot(): ModuleWithProviders {
+    forRoot(): ModuleWithProviders {
         return {
             ngModule: DatePickerModule,
             providers: []
